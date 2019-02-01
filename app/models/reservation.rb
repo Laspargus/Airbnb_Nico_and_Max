@@ -1,5 +1,5 @@
 class Reservation < ApplicationRecord
-	has_many :rooms
+	beongs_to :room
 	belongs_to :admin, class_name: "User"
 	belongs_to :guest, class_name: "User"
 
@@ -11,6 +11,4 @@ class Reservation < ApplicationRecord
 	    errors.add(:start_date, "must be beforehihihi end time") unless
 	       start_date < end_date
 	  end
-
-
 end
