@@ -1,7 +1,8 @@
-class CreateAccommodations < ActiveRecord::Migration[5.2]
+class CreateRooms < ActiveRecord::Migration[5.2]
   def change
-    create_table :accommodations do |t|
-      t.integer :available_beds
+    create_table :rooms do |t|
+
+	t.integer :available_beds
       t.integer :price
       t.text :description
       t.boolean :has_wifi
