@@ -15,10 +15,10 @@ class Reservation < ApplicationRecord
 
 	  def overlap
 	  	Self.each do |reservation|
-	  		if reservation.room == 
+	  		if reservation.room == room
 	  		end_date < reservation.start_date
+	  		end
 	  	end
 	  end
-
 
 end
