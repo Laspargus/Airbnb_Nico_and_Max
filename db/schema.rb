@@ -15,6 +15,22 @@ ActiveRecord::Schema.define(version: 2019_02_01_113955) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "accommodations", force: :cascade do |t|
+    t.integer "available_beds"
+    t.integer "price"
+    t.text "description"
+    t.boolean "has_wifi"
+    t.text "welcome_message"
+    t.bigint "user_id"
+    t.bigint "city_id"
+    t.bigint "reservation_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["city_id"], name: "index_accommodations_on_city_id"
+    t.index ["reservation_id"], name: "index_accommodations_on_reservation_id"
+    t.index ["user_id"], name: "index_accommodations_on_user_id"
+  end
+
   create_table "cities", force: :cascade do |t|
     t.string "name"
     t.string "zip_code"
@@ -25,12 +41,14 @@ ActiveRecord::Schema.define(version: 2019_02_01_113955) do
   create_table "reservations", force: :cascade do |t|
     t.datetime "start_date"
     t.datetime "end_date"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "guest_id"
     t.bigint "admin_id"
     t.index ["admin_id"], name: "index_reservations_on_admin_id"
     t.index ["guest_id"], name: "index_reservations_on_guest_id"
+    t.index ["user_id"], name: "index_reservations_on_user_id"
   end
 
   create_table "rooms", force: :cascade do |t|
