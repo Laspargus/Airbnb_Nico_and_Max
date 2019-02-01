@@ -1,8 +1,12 @@
 class Reservation < ApplicationRecord
+<<<<<<< HEAD
 	
 @@reservations = []
+=======
+>>>>>>> 076609e7a3afb23e72d6ee6bdab419a3434f93dd
 
 	belongs_to :room
+
 	belongs_to :admin, class_name: "User"
 	belongs_to :guest, class_name: "User"
 
@@ -16,6 +20,7 @@ class Reservation < ApplicationRecord
 	       start_date < end_date
 	  end
 
+<<<<<<< HEAD
 
 	  def initialize(id)
 	  	@@reservations << self
@@ -35,3 +40,6 @@ class Reservation < ApplicationRecord
 	  end
 
 end
+=======
+end
+>>>>>>> 076609e7a3afb23e72d6ee6bdab419a3434f93dd
